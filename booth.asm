@@ -1,0 +1,26 @@
+MVI D, F9  //MULTIPLICANT VALUE -7 
+		MVI C, FB  //MULTIPLIER VALUE -5
+		MVI B, 00
+		MVI E, 08
+		MOV A, C
+L3: 	JC L1
+		RRC
+		MOV A,B
+		JNC L2
+		SUB D
+		JMP L2
+L1:	RRC
+		MOV A,B
+		JC L2
+		ADD D
+L2:	MOV B, A
+		RAL
+		MOV A, B
+		RAR
+		MOV B, A
+		MOV A, C
+		RAR
+		MOV C, A
+		DCR E
+		JNZ L3
+		HLT

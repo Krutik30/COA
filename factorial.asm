@@ -1,0 +1,18 @@
+LDA 2050H 
+		MOV B,A 
+		STA 2050H 
+		XRA A 
+LOOP1: 	MOV D,B 
+		DCR D 
+		JZ LOOP2 
+		LDA 2050H 
+		MOV C,A 
+		XRA A 
+LOOP:		ADD C 
+		DCR D 
+		JNZ LOOP 
+		STA 2050H 
+		XRA A 
+LOOP2:	DCR B
+		JNZ LOOP1 
+		HLT 
